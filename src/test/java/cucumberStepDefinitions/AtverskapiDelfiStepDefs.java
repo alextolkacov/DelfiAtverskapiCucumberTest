@@ -4,24 +4,19 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import homeworkAtverskapiDelfi.Pages.ArticlePage;
-import homeworkAtverskapiDelfi.Pages.BaseFunc;
-import homeworkAtverskapiDelfi.Pages.MenShoes;
+import homeworkAtverskapiDelfi.Pages.*;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
 public class AtverskapiDelfiStepDefs {
     BaseFunc baseFunc = new BaseFunc();
-    MenShoes menShoes;
-    ArticlePage articlePage;
+    MenShoes menShoes = new MenShoes(baseFunc);
+    ArticlePage articlePage = new ArticlePage(baseFunc);
+    DropdownToggle dropdownToggle = new DropdownToggle(baseFunc);
+    HomePage homePage = new HomePage(baseFunc);
+
 
     private final String HOME_PAGE = "http://atverskapi.delfi.lv/lv/style";
-    private final By VIRIESIEM = By.xpath(".//a[contains(text(), 'Vīriešiem')]");
-    private final By APAVI = By.xpath(".//*[@href = 'http://atverskapi.delfi.lv/lv/style/sludinajumi/viriesiem/38-apavi']");
-    private final By KURPES = By.xpath(".//*[@for = 'tags-205']");
-    private final By BLACK = By.xpath(".//*[@style = 'background-color: #222223']");
-    private final By JAUNS = By.xpath(".//label[contains(text(), 'Jauns')]");
-    private final By SUBMIT_BTN = By.xpath(".//*[@type = 'submit']");
     private final By ADVERTISMENT = By.xpath(".//a[@class = 'ado-frame-clicktag']");
     private final By TAB_BAR = By.xpath(".//div[@class = 'navbar-inside clearfix']");
     private final By FILTERS = By.xpath(".//div[@class = 'filters hidden-xs']");
@@ -31,14 +26,14 @@ public class AtverskapiDelfiStepDefs {
         baseFunc.openPage(HOME_PAGE);
     }
 
-    @When("we are clicking on Viriesiem")
+    @When("we are clicking on dropdown toggle and Viriesiem")
     public void clicking_on_viriesiem() {
-        baseFunc.getElement(VIRIESIEM).click();
+        homePage.clickDropdownToggle();
     }
 
     @And("clicking on Apavi")
     public void clicking_on_apavi() {
-        baseFunc.getElement(APAVI).click();
+        dropdownToggle.clickToApavi();
     }
 
     @Then("men shoes page appears")
@@ -50,21 +45,21 @@ public class AtverskapiDelfiStepDefs {
 
     @When("we are clicking on filter Shoes")
     public void click_on_shoes() {
-        baseFunc.getElement(KURPES).click();
+        menShoes.clickToShoes();
     }
 
     @And("we are clicking on filter Black")
     public void clicking_on_black() {
-        baseFunc.getElement(BLACK).click();
+        menShoes.clickToBlack();
     }
 
     @And("we are clicking on filter New")
     public void clicking_on_jauns() {
-        baseFunc.getElement(JAUNS).click();
+        menShoes.clickToJauns();
     }
 
     @And("we are clicking on BTN (.*)")
-    public void filtret(String submitBTN) {
+    public void filtret() {
         menShoes.clickSubmit("Filtrēt");
     }
 

@@ -2,7 +2,7 @@ Feature: Delfi tests here
 
   Scenario: First scenario
     Given Atverskapi Delfi home page
-    When we are clicking on Viriesiem
+    When we are clicking on dropdown toggle and Viriesiem
     And clicking on Apavi
     Then men shoes page appears
     When we are clicking on filter Shoes
