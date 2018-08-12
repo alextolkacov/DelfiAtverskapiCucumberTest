@@ -31,7 +31,7 @@ public class AtverskapiDelfiStepDefs {
         homePage.clickDropdownToggle();
     }
 
-    @And("clicking on Apavi")
+    @Then("clicking on Apavi")
     public void clicking_on_apavi() {
         dropdownToggle.clickToApavi();
     }
@@ -48,17 +48,17 @@ public class AtverskapiDelfiStepDefs {
         menShoes.clickToShoes();
     }
 
-    @And("we are clicking on filter Black")
+    @Then("we are clicking on filter Black")
     public void clicking_on_black() {
         menShoes.clickToBlack();
     }
 
-    @And("we are clicking on filter New")
+    @Then("we are clicking on filter New")
     public void clicking_on_jauns() {
         menShoes.clickToJauns();
     }
 
-    @And("we are clicking on BTN (.*)")
+    @Then("we are clicking on BTN (.*)")
     public void filtret() {
         menShoes.clickSubmit("Filtrēt");
     }
